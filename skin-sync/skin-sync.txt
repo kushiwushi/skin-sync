@@ -1,0 +1,39 @@
+// Do not modify this file directly
+
+-open ../models/gta3.img
+-import ../staging/Noa/male01.dff
+-import ../staging/Mika/emmet.dff
+-import ../staging/Seia/bmybu.dff
+-import ../staging/Koyuki/bfyst.dff
+-import ../staging/Tsukatsuki-Rio/bmybe.dff
+-import ../staging/Reisa/reisa_ba.dff
+-import ../staging/Miyako/janitor.dff
+-import ../staging/Hina-Sorasaki/bfori.dff
+-import ../staging/Nagisa/bfyri.dff
+-import ../staging/Hifumi/vbfycrp.dff
+-import ../staging/Nozomi/bmost.dff
+-import ../staging/Nilou/bmori.dff
+-import ../staging/Kazusa/bb.dff
+-import ../staging/Shiroko/maccer.dff
+-import ../staging/Manhattan-Cafe/truth.dff
+-import ../staging/Kisaki/andre.dff
+-import ../staging/Plana/bmyap.dff
+-import ../staging/Noa/male01.txd
+-import ../staging/Mika/emmet.txd
+-import ../staging/Seia/bmybu.txd
+-import ../staging/Koyuki/bfyst.txd
+-import ../staging/Tsukatsuki-Rio/bmybe.txd
+-import ../staging/Reisa/reisa_ba.txd
+-import ../staging/Miyako/janitor.txd
+-import ../staging/Hina-Sorasaki/bfori.txd
+-import ../staging/Nagisa/bfyri.txd
+-import ../staging/Hifumi/vbfycrp.txd
+-import ../staging/Nozomi/bmost.txd
+-import ../staging/Nilou/bmori.txd
+-import ../staging/Kazusa/bb.txd
+-import ../staging/Shiroko/maccer.txd
+-import ../staging/Manhattan-Cafe/truth.txd
+-import ../staging/Kisaki/andre.txd
+-import ../staging/Plana/bmyap.txd
+
+-exit
