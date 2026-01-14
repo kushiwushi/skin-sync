@@ -1,6 +1,6 @@
 from pathlib import Path
 
-skins_path = Path("../staging")
+skins_path = Path("./staging")
 gta3_img_path = Path("../models/gta3.img")
 excludes = []
 
