@@ -1,3 +1,5 @@
 *.txt
-fastman-docs
-excludes
+fastman-docs/
+excludes/
+build/
+dist/

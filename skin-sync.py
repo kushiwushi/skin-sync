@@ -16,13 +16,13 @@ def main(skins_path, excludes):
     txd_files = [path for path in skins_path.rglob("*.txd") if str(path) not in excludes]
     
     with open("skin-sync.txt", "w") as f_out:
-        f_out.write(f"// Do not modify this file directly\n\n-open {gta3_img_path}\n")
+        f_out.write(f"// Do not modify this file directly\n\n-open "{gta3_img_path}"\n")
         
         for valid_skin_file in dff_files:
-            f_out.write(f"-import {valid_skin_file}\n")
+            f_out.write(f'-import "{valid_skin_file}"\n')
         
         for valid_skin_file in txd_files:
-            f_out.write(f"-import {valid_skin_file}\n")
+            f_out.write(f'-import "{valid_skin_file}"\n')
         
         f_out.write("\n-exit")
     
