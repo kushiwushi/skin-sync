@@ -2,34 +2,35 @@ from pathlib import Path
 
 skins_path = Path("../staging")
 gta3_img_path = Path("../models/gta3.img")
-
 excludes = []
 
 def check_excludes(excludes):
-    with open("excludes", "r") as readExcludes:
-        for i in readExcludes:
-            excludes.append(i)
+    excludes_file = Path("excludes")
+    if excludes_file.exists():
+        with open(excludes_file, "r") as readExcludes:
+            for line in readExcludes:
+                excludes.append(line.strip()) 
 
-def main(skins_path):
-    check_excludes(excludes)
-    valid_skin_file = [path for path in skins_path.rglob('*') if path.name not in excludes]
-
-    with open("skin-sync.txt", "w") as f_out, open("excludes", "a") as writeExcludes:
-        f_out.write(f"// Do not modify\n\n-open {gta3_img_path}\n")
-
-        # Combine the extensions you want
-        for ext in ["*.dff", "*.txd"]:
-            for file_path in skins_path.rglob(ext):
-                # CHECK THE EXCLUDES HERE
-                if file_path.name not in excludes:
-                    f_out.write(f"-import {file_path}\n")
-                    writeExcludes.write(f"{file_path.name}\n")
-                else:
-                    print(f"Skipping {file_path.name}, it is excluded.")
-
-    with open("skin-sync.txt", "a") as append:
-        append.write("\n-exit")
+def main(skins_path, excludes):
+    dff_files = [path for path in skins_path.rglob("*.dff") if str(path) not in excludes]
+    txd_files = [path for path in skins_path.rglob("*.txd") if str(path) not in excludes]
+    
+    with open("skin-sync.txt", "w") as f_out:
+        f_out.write(f"// Do not modify this file directly\n\n-open {gta3_img_path}\n")
+        
+        for valid_skin_file in dff_files:
+            f_out.write(f"-import {valid_skin_file}\n")
+        
+        for valid_skin_file in txd_files:
+            f_out.write(f"-import {valid_skin_file}\n")
+        
+        f_out.write("\n-exit")
+    
+    with open("excludes", "a") as writeExcludes:
+        for valid_skin_file in dff_files + txd_files:
+            writeExcludes.write(f"{valid_skin_file}\n")
+            print(f"Added: {valid_skin_file}")
 
 if __name__ == "__main__":
-    
-    main(skins_path)
+    check_excludes(excludes)
+    main(skins_path, excludes)
